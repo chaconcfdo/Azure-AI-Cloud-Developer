@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: aoaichatapp
+  name: aoaichatapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aoaichatapp
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: aoaichatapp
+    spec:
+      containers:
+      - image: ai200cr.azurecr.io/aoaichatapp:latest
+        name: aoaichatapp
+        ports:
+        - containerPort: 80
+        resources: {}
+status: {}

@@ -25,12 +25,16 @@ With the application running locally, you can send an HTTP request to test it. Y
 ```bash
 curl -X POST http://localhost:5000/chat -H "Content-Type: application/json" -d "{\"message\":\"Can you please suggest some places to travel in India?\"}"
 ```
+Version using my published web app:
+```bash
+curl -X POST https://aoaipythonapp-fhfua2dncaf9a7dp.eastus-01.azurewebsites.net/chat -H "Content-Type: application/json" -d "{\"message\":\"Can you please suggest some places to travel in India?\"}"
+```
 
 ### Push the Image to Azure Container Registry (ACR)
 To push your Docker image to Azure Container Registry (ACR), run the following commands:
 ```bash
 # Set the ACR name variable for reuse
-export ACR_NAME=<your-acr-name>
+export ACR_NAME=ai200container
 
 az acr login --name $ACR_NAME
 docker tag aoaipythonapp $ACR_NAME.azurecr.io/aoaipythonapp:v1
